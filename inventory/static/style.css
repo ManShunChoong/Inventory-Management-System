@@ -1,0 +1,40 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.inventory-image {
+  max-width: 30%;
+  margin-bottom: 20px;
+}
+
+.inventory-details {
+  list-style-type: none;
+  padding: 0;
+}
+
+.inventory-details li {
+  margin-bottom: 10px;
+}
+
+.inventory-details strong {
+  font-weight: bold;
+  margin-right: 5px;
+}

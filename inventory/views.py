@@ -1,6 +1,6 @@
 import requests
+from django.conf import settings
 from django.shortcuts import render
-from django.views import View
 from rest_framework.viewsets import ReadOnlyModelViewSet, ViewSet
 
 from .forms import InventoryForm
@@ -23,19 +23,15 @@ class InventoryModelViewSet(ReadOnlyModelViewSet):
 
 class InventoryViewSet(ViewSet):
     def list(self, request):
-        search = request.GET.get("search", "")
-        availability = request.GET.get("availability")
-        url = f"http://127.0.0.1:8000/api/inventory/?search={search}&availability={availability}"
-
-        response = requests.get(url)
+        url = f"{settings.BASE_URL}/api/inventory/"
+        response = requests.get(url, params=request.GET)
         inventories = response.json()
         context = {"inventories": inventories, "form": InventoryForm()}
 
         return render(request, "inventory_list.html", context)
 
     def retrieve(self, request, pk=None):
-        url = f"http://127.0.0.1:8000/api/inventory/{pk}/"
-        response = requests.get(url)
+        response = requests.get(url=f"{settings.BASE_URL}/api/inventory/{pk}/")
         inventory = response.json()
 
         return render(request, "inventory_detail.html", {"inventory": inventory})
