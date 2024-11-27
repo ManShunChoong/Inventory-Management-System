@@ -8,6 +8,12 @@
 git clone https://github.com/ManShunChoong/Inventory-Management-System.git
 ```
 
+2. Change current directory
+
+```bash
+cd Inventory-Management-System
+```
+
 2. Create a virtual environment
 
 ```bash
@@ -59,5 +65,9 @@ http://localhost:8000/admin/
 ## Note
 
 - The application uses SQLite as the database
+
+## For Assignment Review
+
+- The SQLite database is included in the repository
 - Admin Username: admin
 - Admin Password: 123
