@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory List</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Inventory List</h1>
+
+        <form method="get" action="">
+            {{ form }}
+            <button type="submit">Search & Filter</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Supplier Name</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for inventory in inventories %}
+                <tr>
+                    <td><a href="{% url 'inventory-viewset-detail' inventory.id %}">{{ inventory.name }}</a></td>
+                    <td>{{ inventory.supplier_name }}</td>
+                    <td>{{ inventory.availability|yesno:"Available,Unavailable" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
