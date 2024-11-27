@@ -34,13 +34,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-5. Run the application
+## Usage
+
+1. Run the application
 
 ```bash
 python manage.py runserver
 ```
 
-6. Access the application
+2. Access the application
 
 - Inventory List Page
 
@@ -57,8 +59,5 @@ http://localhost:8000/admin/
 ## Note
 
 - The application uses SQLite as the database
-
-Admin Credential:
-
-- Username: admin
-- Password: 123
+- Admin Username: admin
+- Admin Password: 123
