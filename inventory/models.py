@@ -13,6 +13,9 @@ from django.db.models import (
 class Supplier(Model):
     name = CharField(max_length=50, unique=True)
 
+    def __str__(self) -> str:
+        return f"{self.pk} - {self.name}"
+
 
 class Inventory(Model):
     name = CharField(max_length=50)
@@ -26,3 +29,7 @@ class Inventory(Model):
         constraints = [
             UniqueConstraint(fields=["name", "supplier"], name="unique_name_supplier")
         ]
+        verbose_name_plural = "Inventories"
+
+    def __str__(self) -> str:
+        return f"{self.pk} - {self.name}"

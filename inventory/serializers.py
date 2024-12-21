@@ -3,7 +3,7 @@ from rest_framework.serializers import CharField, ModelSerializer
 from .models import Inventory
 
 
-class InventorySerializer(ModelSerializer):
+class InventoryDetailSerializer(ModelSerializer):
     class Meta:
         model = Inventory
         fields = "__all__"
@@ -11,7 +11,7 @@ class InventorySerializer(ModelSerializer):
 
 
 class InventoryListSerializer(ModelSerializer):
-    supplier_name = CharField(source="supplier.name")
+    supplier_name = CharField(read_only=True)
 
     class Meta:
         model = Inventory
