@@ -1,4 +1,3 @@
-from django.db.models.expressions import F
 from django.db.models.query import QuerySet
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -22,9 +21,7 @@ class BaseInventoryModelViewSet(GenericViewSet):
     search_fields = ["name", "supplier_name"]
 
     def get_queryset(self) -> QuerySet:
-        if self.action == "list":
-            return self.queryset.annotate(supplier_name=F("supplier__name"))
-        return self.queryset.all()
+        return self.queryset.select_related("supplier")
 
     def get_serializer_class(self) -> Serializer:
         return self.action_serializer_classes[self.action]

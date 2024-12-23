@@ -11,7 +11,7 @@ class InventoryDetailSerializer(ModelSerializer):
 
 
 class InventoryListSerializer(ModelSerializer):
-    supplier_name = CharField(read_only=True)
+    supplier_name = CharField(source="supplier.name")
 
     class Meta:
         model = Inventory
