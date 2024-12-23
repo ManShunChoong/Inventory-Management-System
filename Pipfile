@@ -9,6 +9,7 @@ django-filter = "*"
 djangorestframework = "*"
 
 [dev-packages]
+django-silk = "*"
 
 [requires]
 python_version = "3.13.1"
